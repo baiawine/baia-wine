@@ -4,7 +4,7 @@
   "description": "A workflow for Angular made with Webpack",
   "scripts": {
     "build": "rimraf dist && webpack --bail --progress --profile",
-    "server": "webpack-dev-server --history-api-fallback --inline --progress",
+    "server": "webpack-dev-server --hot --inline",
     "test": "karma start",
     "test-watch": "karma start --auto-watch --no-single-run",
     "start": "npm run server"
@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/preboot/angularjs-webpack",
   "dependencies": {
-    "angular": "^1.5.0"
+    "angular": "^1.5.0",
+    "angular-translate": "^2.15.2",
+    "angular-ui-router": "^1.0.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",

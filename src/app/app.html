@@ -1,9 +1,11 @@
 <main>
-  <h1 class="title">Hello from Angular !</h1>
+  <h1 class="title" translate>HEADLINE</h1>
 
   <!-- Images (and assets) are parsed and loaded from within the public directory -->
   <img src="/img/logo.png">
+  <p ng-click="app.switchLang('zz')">Switch language to ZZ</p>
+  <p ng-click="app.switchLang('en')">Switch language to EN</p>
 </main>
 <footer>
-  <a ng-href="{{app.url}}">Webpack Angular Starter</a>
+  <a ng-href="{{app.url}}" translate>PARAGRAPH</a>
 </footer>
