@@ -61,14 +61,22 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#devtool
    * Type of sourcemap to use per build type
    */
+  
+  // Extract text fails in development on live reload
+  // thus set different loaders depending on the env
+  let loaders;
+
   if (isTest) {
     config.devtool = 'inline-source-map';
+    loaders = 'null-loader';
   }
   else if (isProd) {
     config.devtool = 'source-map';
+    loaders = ExtractTextPlugin.extract(['css-loader', 'sass-loader']);
   }
   else {
     config.devtool = 'eval-source-map';
+    loaders = [ 'style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap' ];
   }
 
   /**
@@ -95,20 +103,14 @@ module.exports = function makeWebpackConfig() {
       //
       // Reference: https://github.com/postcss/postcss-loader
       // Postprocess your css with PostCSS plugins
-      test: /\.css$/,
+      test: /\.scss$/,
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
       // Extract css files in production builds
       //
       // Reference: https://github.com/webpack/style-loader
       // Use style-loader in development.
 
-      loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: [
-          {loader: 'css-loader', query: {sourceMap: true}},
-          {loader: 'postcss-loader'}
-        ],
-      })
+      loader: loaders
     }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
@@ -160,14 +162,9 @@ module.exports = function makeWebpackConfig() {
    * List: http://webpack.github.io/docs/list-of-plugins.html
    */
   config.plugins = [
-    new webpack.LoaderOptionsPlugin({
-      test: /\.scss$/i,
-      options: {
-        postcss: {
-          plugins: [autoprefixer]
-        }
-      }
-    })
+  // Reference: https://github.com/webpack/extract-text-webpack-plugin
+  // Extract css files
+      new ExtractTextPlugin({filename: 'css/[name].css', allChunks: true})
   ];
 
   // Skip rendering index.html in test mode
@@ -178,12 +175,7 @@ module.exports = function makeWebpackConfig() {
       new HtmlWebpackPlugin({
         template: './src/public/index.html',
         inject: 'body'
-      }),
-
-      // Reference: https://github.com/webpack/extract-text-webpack-plugin
-      // Extract css files
-      // Disabled when in test mode or not in build mode
-      new ExtractTextPlugin({filename: 'css/[name].css', disable: !isProd, allChunks: true})
+      })
     )
   }
 
@@ -216,7 +208,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
   config.devServer = {
-    contentBase: './src/public',
+    contentBase: './dist',
     stats: 'minimal'
   };
 

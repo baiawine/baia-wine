@@ -4,7 +4,7 @@ import angularTranslate from 'angular-translate';
 
 import MainController from './controllers/main.controller'
 import config from './app.config'
-import '../style/app.css';
+import '../style/main.scss';
 
 const MODULE_NAME = 'app';
 
