@@ -64,6 +64,7 @@ module.exports = function makeWebpackConfig() {
   
   // Extract text fails in development on live reload
   // thus set different loaders depending on the env
+  // Ref: https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/30
   let loaders;
 
   if (isTest) {
