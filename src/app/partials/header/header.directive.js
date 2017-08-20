@@ -1,9 +1,9 @@
-import templateUrl from 'ngtemplate-loader!./header.tpl.html';
+import template from './header.tpl.html';
 
 const headerTpl = () => {
   return {
     restrict: 'E',
-    templateUrl: templateUrl
+    template: template
   }
 };
 
