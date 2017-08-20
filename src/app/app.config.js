@@ -14,6 +14,7 @@ export default function config($stateProvider, $translateProvider) {
 
   $translateProvider
     .translations('en', strings.EN)
-    .translations('zz', strings.ZZ)
+    .translations('ge', strings.GE)
+    .translations('ru', strings.RU)
     .preferredLanguage('en');
 }

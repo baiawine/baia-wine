@@ -140,6 +140,19 @@ module.exports = function makeWebpackConfig() {
         }
       ]
     }, {
+      // FONT LOADER
+      // Reference: https://github.com/webpack/file-loader
+      // You can add here any file extension you want to get copied to your output
+      test: /\.(woff|woff2|ttf|eot|otf)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '/fonts/[name].[ext]'
+          }
+        }
+      ]
+    }, {
       // HTML LOADER
       // Reference: https://github.com/webpack/raw-loader
       // Allow loading html through js

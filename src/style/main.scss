@@ -1,8 +1,26 @@
 @import "~avalanche-css/_avalanche";
 @import "~normalize.css/normalize.css";
 
-.random-class {
-	height: 5px;
+@font-face {
+  font-family: 'parsek';
+  src: url(~/fonts/parsek.ttf);
+}
+
+@font-face {
+  font-family: 'ge-unicode';
+  src: url(~/fonts/3d_unicode.ttf);
+}
+
+h1, h2, h3 {
+  font-family: 'parsek', 'Arial';
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1:lang(ge), h2:lang(ge), h3:lang(ge) {
+  font-family: 'ge-unicode', 'Arial';
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -22,7 +40,7 @@ a {
 
 main {
   padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   text-align: center;
   margin-top: 50px;
   display: block;

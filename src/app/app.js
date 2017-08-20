@@ -7,15 +7,18 @@ import headerTpl from './partials/header/header.directive';
 import config from './app.config';
 import '../style/main.scss';
 
-/**
- * Import all images for webpack loaders to process
- */
 function importAll(r) {
   return r.keys().map(r);
 }
 
-importAll(require.context('../public/img', false, /\.(png|jpe?g|svg)$/));
-
+/**
+ * Import all images for webpack loaders to process
+ */
+importAll(require.context('../public/img', false, /\.(png|jpg|jpe?g|gif|svg)$/));
+/**
+ * Import all fonts for webpack loaders to process
+ */
+importAll(require.context('../public/fonts', false, /\.(woff|woff2|ttf|eot|otf)$/));
 
 const MODULE_NAME = 'app';
 

@@ -2,12 +2,13 @@
 	<header-template></header-template>
 </header>
 <main>
-  <h1 class="title" translate>HEADLINE</h1>
+  <h1 class="title" lang="{{app.language}}" translate>HEADLINE</h1>
 
   <!-- Images (and assets) are parsed and loaded from within the public directory -->
   <img src="/img/logo.png">
-  <p ng-click="app.switchLang('zz')">Switch language to ZZ</p>
+  <p ng-click="app.switchLang('ge')">Switch language to GE</p>
   <p ng-click="app.switchLang('en')">Switch language to EN</p>
+  <p ng-click="app.switchLang('ru')">Switch language to RU</p>
 </main>
 <footer>
   <a ng-href="{{app.url}}" translate>PARAGRAPH</a>
