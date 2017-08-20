@@ -7,6 +7,16 @@ import headerTpl from './partials/header/header.directive';
 import config from './app.config';
 import '../style/main.scss';
 
+/**
+ * Import all images for webpack loaders to process
+ */
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+importAll(require.context('../public/img', false, /\.(png|jpe?g|svg)$/));
+
+
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, [uiRouter, angularTranslate])

@@ -6,6 +6,7 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 /**
  * Env
@@ -77,7 +78,7 @@ module.exports = function makeWebpackConfig() {
   }
   else {
     config.devtool = 'eval-source-map';
-    loaders = [ 'style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap' ];
+    loaders = [ 'style-loader', 'css-loader', 'sass-loader' ];
   }
 
   /**
@@ -120,7 +121,24 @@ module.exports = function makeWebpackConfig() {
       // Pass along the updated reference to your code
       // You can add here any file extension you want to get copied to your output
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-      loader: 'file-loader'
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '/img/[name].[ext]'
+          }
+        },
+        {
+          loader: 'image-webpack-loader',
+          options: {
+            query: {
+              progressive: true,
+              optimizationLevel: 7,
+              interlaced: false
+            }
+          }
+        }
+      ]
     }, {
       // HTML LOADER
       // Reference: https://github.com/webpack/raw-loader
@@ -165,7 +183,7 @@ module.exports = function makeWebpackConfig() {
   config.plugins = [
   // Reference: https://github.com/webpack/extract-text-webpack-plugin
   // Extract css files
-      new ExtractTextPlugin({filename: 'css/[name].css', allChunks: true})
+      new ExtractTextPlugin({filename: 'css/[name]_[hash].css', allChunks: true})
   ];
 
   // Skip rendering index.html in test mode
@@ -177,7 +195,7 @@ module.exports = function makeWebpackConfig() {
         template: './src/public/index.html',
         inject: 'body'
       })
-    )
+    );
   }
 
   // Add build specific plugins
@@ -195,11 +213,9 @@ module.exports = function makeWebpackConfig() {
       // Minify all javascript, switch loaders to minimizing mode
       new webpack.optimize.UglifyJsPlugin(),
 
-      // Copy assets from the public folder
-      // Reference: https://github.com/kevlened/copy-webpack-plugin
-      new CopyWebpackPlugin([{
-        from: __dirname + '/src/public'
-      }])
+      // Reference: https://github.com/NMFR/optimize-css-assets-webpack-plugin
+      // Minify css
+      new OptimizeCssAssetsPlugin()
     )
   }
 
