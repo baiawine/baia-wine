@@ -1,16 +1,9 @@
-AppCtrl.$inject = ['$translate', '$rootScope'];
+AppCtrl.$inject = ['$translate'];
 
-export default function AppCtrl($translate, $rootScope) {
+export default function AppCtrl($translate) {
   let vm = this;
-
-  // Set language code
-  vm.language = $translate.use();
 
   vm.switchLang = (langCode) => {
   	$translate.use(langCode);
   }
-
-  $rootScope.$on("$translateChangeSuccess", () => {
-  	vm.language = $translate.use();
-  });
 }

@@ -7,7 +7,7 @@
     "server": "webpack-dev-server --hot --inline",
     "test": "karma start",
     "test-watch": "karma start --auto-watch --no-single-run",
-    "start": "npm run build && npm run server"
+    "start": "npm run server"
   },
   "repository": {
     "type": "git",

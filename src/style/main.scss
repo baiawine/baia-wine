@@ -1,27 +1,7 @@
-@import "~avalanche-css/_avalanche";
+@import "./_avalanche";
 @import "~normalize.css/normalize.css";
-
-@font-face {
-  font-family: 'parsek';
-  src: url(~/fonts/parsek.ttf);
-}
-
-@font-face {
-  font-family: 'ge-unicode';
-  src: url(~/fonts/3d_unicode.ttf);
-}
-
-h1, h2, h3 {
-  font-family: 'parsek', 'Arial';
-  font-weight: normal;
-  font-style: normal;
-}
-
-h1:lang(ge), h2:lang(ge), h3:lang(ge) {
-  font-family: 'ge-unicode', 'Arial';
-  font-weight: normal;
-  font-style: normal;
-}
+@import "./fonts";
+@import "./typography";
 
 body {
   background: #0147A7;
@@ -29,21 +9,26 @@ body {
 }
 
 header {
-    background: url(~/img/wineyard_header.jpg) no-repeat center center fixed;
-    min-height: 100vh;
-    background-size: cover;
+  background: url(~/img/wineyard_header.jpg) no-repeat center center fixed;
+  height: 100vh;
+  background-size: cover;
+}
+
+.header {
+  padding: 0;
+    &--middle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &--center {
+      text-align: center;
+    }
 }
 
 a {
   color: #03A9F4;
-}
-
-main {
-  padding: 1em;
-  font-family: Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
 }
 
 footer {

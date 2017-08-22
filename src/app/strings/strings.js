@@ -1,5 +1,7 @@
 const strings = {
   EN: {
+  	HEADER_INTRO: 'Welcome to Baia\'s Wineyard!',
+  	WINES_HEADER: 'Our wines',
     PARAGRAPH: 'And it comes with awesome features!',
     HEADLINE: 'What an awesome module!'
   },

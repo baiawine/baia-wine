@@ -1,15 +1,22 @@
-<header>
-	<header-template></header-template>
+<header class="grid grid--middle">
+	<div header-template class="3/4--desk grid__cell grid__cell--center header header--middle header--center"></div>
 </header>
-<main>
-  <h1 class="title" lang="{{app.language}}" translate>HEADLINE</h1>
-
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/logo.png">
-  <p ng-click="app.switchLang('ge')">Switch language to GE</p>
-  <p ng-click="app.switchLang('en')">Switch language to EN</p>
-  <p ng-click="app.switchLang('ru')">Switch language to RU</p>
+<main class="grid grid--middle">
+	<div class="3/4--lap-and-up grid__cell grid__cell--center">
+		<h1 class="header--center" attach-lang translate>WINES_HEADER</h1>
+		<div class="grid">
+			<div class="grid__cell">
+				<p ng-click="app.switchLang('ge')" attach-lang>Switch language to GE</p>
+			</div>
+			<div class="grid__cell">
+				<p ng-click="app.switchLang('en')">Switch language to EN</p>
+			</div>
+			<div class="grid__cell">
+				<p ng-click="app.switchLang('ru')">Switch language to RU</p>
+			</div>
+		</div>
+	</div>
 </main>
 <footer>
-  <a ng-href="{{app.url}}" translate>PARAGRAPH</a>
+  <a ng-href="{{app.url}}" attach-lang translate>PARAGRAPH</a>
 </footer>

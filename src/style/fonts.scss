@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+@font-face {
+  font-family: 'parsek';
+  src: url(~/fonts/parsek.ttf);
+}
+
+@font-face {
+  font-family: 'ge-unicode';
+  src: url(~/fonts/3d_unicode.ttf);
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  src: url(~/fonts/NotoSansGeorgian-Regular.ttf);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'parsek', Arial;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1:lang(ge), h2:lang(ge), h3:lang(ge), h4:lang(ge), h5:lang(ge), h6:lang(ge) {
+  font-family: 'ge-unicode';
+  font-weight: normal;
+  font-style: normal;
+}
+
+p:lang(ge), span:lang(ge), a:lang(ge), li:lang(ge) {
+  font-family: 'NotoSans', Arial, serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+p, span, a, li {
+  font-family: 'PT Sans', Arial, serif;
+  font-weight: normal;
+  font-style: normal;
+}

@@ -2,7 +2,7 @@ import template from './header.tpl.html';
 
 const headerTpl = () => {
   return {
-    restrict: 'E',
+    restrict: 'A',
     template: template
   }
 };
