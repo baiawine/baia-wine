@@ -1,0 +1,27 @@
+.wine-box {
+	&--image {
+		width: 100%;
+		border-radius: 10px;
+	}
+	&--details {
+		text-align: center;
+		h4 {
+			margin-bottom: 0px;
+		}
+		@media screen and (min-width: 1025px) {
+			text-align: left;
+			&__left {
+				padding-right: 6rem;
+			}
+			&__right {
+				padding-left: 6rem;
+			}
+		}
+	}
+	&__padding-top {
+		padding-top: 1.25rem;
+		@media screen and (min-width: 1025px) {
+			padding-top: 3rem;
+		}
+	}
+}

@@ -1,95 +1,3 @@
-// $p-font-sizes: (
-//   null  : 1rem,
-//   480px : 1rem,
-//   640px : 1rem,
-//   1024px: 2rem
-// );
-
-// html { font-size: 62.5%; }
-
-// @mixin font-size($fs-map) {
-//   @each $fs-breakpoint, $fs-font-size in $fs-map {
-//     @if $fs-breakpoint == null {
-//       font-size: $fs-font-size;
-//     }
-//     @else {
-//       @media screen and (min-width: $fs-breakpoint) {
-//         font-size: $fs-font-size;
-//       }
-//     }
-//   }
-// }
-
-// p, span, a, li {
-// 	@include font-size($p-font-sizes);
-// }
-/*=============================================
-=					Typography	              =
-=============================================*/
-
-// $breakpoints: (
-//   small : 480px,
-//   medium: 700px,
-//   large : 1024px
-// );
-
-// $text-font-sizes: (
-//   null  : (15px, 1.3),
-//   small : 16px,
-//   medium: (17px, 1.4),
-//   900px : 18px,
-//   large : (19px, 1.45),
-//   1440px: 20px,
-// );
-
-// $h1-font-sizes: (
-//   null  : (15px, 1.3),
-//   small : 16px,
-//   medium: (17px, 1.4),
-//   900px : 18px,
-//   large : (19px, 1.45),
-//   1440px: 20px,
-// );
-
-
-// @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
-//   @each $fs-breakpoint, $fs-font-size in $fs-map {
-//     @if $fs-breakpoint == null {
-//       @include make-font-size($fs-font-size);
-//     }
-//     @else {
-//       // If $fs-font-size is a key that exists in
-//       // $fs-breakpoints, use the value
-//       @if map-has-key($fs-breakpoints, $fs-breakpoint) {
-//         $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
-//       }
-//       @media screen and (min-width: $fs-breakpoint) {
-//         @include make-font-size($fs-font-size);
-//       }
-//     }
-//   }
-// }
-
-// // Utility function for mixin font-size
-// @mixin make-font-size($fs-font-size) {
-//   // If $fs-font-size is a list, include
-//   // both font-size and line-height
-//   @if type-of($fs-font-size) == "list" {
-//     font-size: nth($fs-font-size, 1);
-//     @if (length($fs-font-size) > 1) {
-//       line-height: nth($fs-font-size, 2);
-//     }
-//   }
-//   @else {
-//     font-size: $fs-font-size;
-//   }
-// }
-
-// p, span, a, li {
-// 	@include font-size($text-font-sizes);
-// }
-// 
-
 // body font size
 $browser-context: 16;
 
@@ -103,8 +11,8 @@ $xs: 499px;
 $body-font-size: (null: $browser-context);
 $h1-font-size: (null: 92, $md: 110, $sm: 78, $xs: 62);
 $h2-font-size: (null: 76, $md: 94, $sm: 62, $xs: 46);
-$h3-font-size: (null: 60, $md: 78, $sm: 56, $xs: 30);
-$h4-font-size: (null: 44, $md: 62, $sm: 40, $xs: 20);
+$h3-font-size: (null: 60, $md: 78, $sm: 56, $xs: 40);
+$h4-font-size: (null: 44, $md: 62, $sm: 40, $xs: 30);
 $text-font-size: (null: 16, $md: 22, $sm: 18);
 
 // unitless function to convert px to em

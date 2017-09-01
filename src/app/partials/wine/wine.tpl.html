@@ -1,0 +1,8 @@
+<div class="1/3--desk grid__cell">
+	<img ng-cloak ng-src="{{wine.imgSrc}}" class="wine-box--image">
+</div>
+
+<div class="2/3--desk grid__cell wine-box--details" ng-class="{'wine-box--details__left': wine.isLeft, 'wine-box--details__right': !wine.isLeft }">
+	<h4 class="header--wine-box">{{wine.name | translate}}</h4>
+	<p class="wine-box--details">{{wine.description | translate}}</p>
+</div>
