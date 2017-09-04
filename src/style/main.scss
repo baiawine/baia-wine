@@ -3,6 +3,7 @@
 @import "./fonts";
 @import "./typography";
 @import "./wine-box";
+@import "./map";
 
 body {
   background: #FDFBFB;
@@ -17,30 +18,42 @@ header {
 
 .header {
   padding: 10px;
-    &--main {
+    &__main {
       color: #fff
     }
-    &--wine-box {
-      margin: 0.5em 0em 0.75em 0em;
+    &__wine-box {
+      @media screen and (max-width: 1024px) {
+        margin-top: 1rem;
+      }
     }
-    &__middle {
+    &--middle {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
     }
-    &__center {
+    &--center {
       text-align: center;
+    }
+    &--no-margin-bottom {
+      margin-bottom: 0;
     }
 }
 
 .vine {
-  width: 100%;
+  &__svg {
+    width: 100%;
+  }
   position: relative;
+  padding-left: 20px;
   top: -2rem;
   @media screen and (min-width: 1025px) {
     top: -5rem;
   }
+}
+
+.grid__cell--nested {
+  padding: 0px;
 }
 
 a {

@@ -1,8 +1,8 @@
 <div class="1/3--desk grid__cell">
-	<img ng-cloak ng-src="{{wine.imgSrc}}" class="wine-box--image">
+	<img ng-cloak ng-src="{{wine.imgSrc}}" class="wine-box__image">
 </div>
 
-<div class="2/3--desk grid__cell wine-box--details" ng-class="{'wine-box--details__left': wine.isLeft, 'wine-box--details__right': !wine.isLeft }">
-	<h4 class="header--wine-box">{{wine.name | translate}}</h4>
-	<p class="wine-box--details">{{wine.description | translate}}</p>
+<div class="2/3--desk grid__cell wine-box__details" ng-class="{'wine-box__details--left': wine.isLeft, 'wine-box__details--right': !wine.isLeft }">
+	<h4 class="header__wine-box header--no-margin-bottom">{{wine.name | translate}}</h4>
+	<p class="wine-box__details">{{wine.description | translate}}</p>
 </div>

@@ -1,24 +1,22 @@
 .wine-box {
-	&--image {
+	&__image {
 		width: 100%;
 		border-radius: 10px;
 	}
-	&--details {
+	&__details {
 		text-align: center;
-		h4 {
-			margin-bottom: 0px;
-		}
 		@media screen and (min-width: 1025px) {
 			text-align: left;
-			&__left {
+			&--left {
 				padding-right: 6rem;
 			}
-			&__right {
-				padding-left: 6rem;
+			&--right {
+				// padding of div + padding of image
+				padding-left: calc(6rem + 20px);
 			}
 		}
 	}
-	&__padding-top {
+	&--padding-top {
 		padding-top: 1.25rem;
 		@media screen and (min-width: 1025px) {
 			padding-top: 3rem;

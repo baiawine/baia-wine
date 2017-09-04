@@ -4,6 +4,8 @@ const strings = {
   	WINES_HEADER: 'Our wines',
     PARAGRAPH: 'And it comes with awesome features!',
     HEADLINE: 'What an awesome module!',
+    FIND_US: 'Here\'s how to find us', 
+    DIRECTIONS: 'Directions from Kutaisi', 
     PRODUCTS: {
     	TSOLIKOURI: {
     		NAME: 'Tsolikouri',

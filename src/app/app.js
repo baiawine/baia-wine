@@ -7,6 +7,7 @@ import MainController from './controllers/main.controller';
 import attachLang from './directives/language-attach.directive';
 import headerTpl from './partials/header/header.directive';
 import wine from './partials/wine/wine.component';
+import map from './partials/map/map.component';
 import config from './app.config';
 import '../style/main.scss';
 
@@ -31,6 +32,7 @@ angular.module(MODULE_NAME, [uiRouter, angularTranslate])
   .controller('AppCtrl', MainController)
   .directive('attachLang', attachLang)
   .directive('headerTemplate', headerTpl)
-  .component('wine', wine);
+  .component('wine', wine)
+  .component('map', map);
 
 export default MODULE_NAME;
