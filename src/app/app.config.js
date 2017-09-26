@@ -8,8 +8,8 @@ export default function config($stateProvider, $translateProvider) {
     .state('home', {
       url: '',
       template: require('./app.html'),
-      controller: 'AppCtrl',
-      controllerAs: 'app'
+      controller: 'MainCtrl',
+      controllerAs: 'main'
     });
 
   $translateProvider

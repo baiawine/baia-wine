@@ -5,7 +5,13 @@ const strings = {
     PARAGRAPH: 'And it comes with awesome features!',
     HEADLINE: 'What an awesome module!',
     FIND_US: 'Here\'s how to find us', 
-    DIRECTIONS: 'Directions from Kutaisi', 
+    DIRECTIONS: 'Directions from Kutaisi',
+    NAVIGATION: {
+      OUR_WINES: 'Our wines',
+      FIND_US: 'Find us',
+      SOCIAL_MEDIA: 'Social media',
+      CONTACT_US: 'Contact us'
+    }, 
     PRODUCTS: {
     	TSOLIKOURI: {
     		NAME: 'Tsolikouri',

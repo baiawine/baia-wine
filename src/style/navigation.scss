@@ -1,0 +1,114 @@
+.nav-bar {
+
+	@media screen and (max-width: 1024px) {
+		display: flex;
+	}
+
+	&__container {
+		padding: 20px;
+		position: relative;
+		z-index: 1;
+
+		& a {
+			color: #000;
+			text-decoration: none;
+		}
+
+		@media screen and (max-width: 1024px) {
+			background: #fff;
+		}
+	}
+	
+	&__logo {
+		display: block;
+		height: 2.5rem;
+		background: url('/img/baia-logo.jpg');
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		@media screen and (min-width: 1024px) {
+			height: 7.5rem;
+		}
+	}
+
+	&__burger {
+		display: none;
+		font-size: 2rem;
+		margin-left: auto;
+
+		@media screen and (max-width: 1024px) {
+			display: block;
+		}
+	}
+
+	&__links {
+		line-height: 1.5;
+
+		& a {
+			font-size: 1.25rem;
+			@media screen and (min-width: 1024px) {
+				padding-right: 15px;
+			}
+
+			&:last-child {
+				@media screen and (min-width: 1024px) {
+					padding-right: 50px;
+				}
+			}
+		}
+		
+		&--hidden {
+			@media screen and (max-width: 1024px) {
+				display: none;
+			}
+		}
+		
+		&--show {
+			@media screen and (max-width: 1024px) {
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+			}
+		}
+	}
+
+	&__lang {
+		
+		&-box {
+			line-height: 1.5;
+
+			& a:not(.nav-bar__lang-box--selected):hover {
+				color: #fff;
+			}
+			
+			@media screen and (max-width: 1024px) {
+				display: none;
+			}
+
+			&--mobile-open {
+				@media screen and (max-width: 1024px) {
+					display: block;
+				}
+			}
+
+			&-outer {
+				display: flex;
+			}
+
+			&-inner {
+				display: inline-block;
+				margin: 0 auto;
+			}
+		}
+
+	}
+
+}
+
+.padding-left-5 {
+	padding-left: 5px;
+}
+
+.padding-top-10 {
+	padding-top: 10px;
+}

@@ -74,11 +74,11 @@ module.exports = function makeWebpackConfig() {
   }
   else if (isProd) {
     config.devtool = 'source-map';
-    loaders = ExtractTextPlugin.extract(['css-loader', 'sass-loader']);
+    loaders = ExtractTextPlugin.extract(['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']);
   }
   else {
     config.devtool = 'eval-source-map';
-    loaders = [ 'style-loader', 'css-loader', 'sass-loader' ];
+    loaders = [ 'style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?sourceMap' ];
   }
 
   /**

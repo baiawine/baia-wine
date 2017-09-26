@@ -1,8 +1,10 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import angularTranslate from 'angular-translate';
+import duScroll from 'angular-scroll';
 
 import {THUMBNAILS} from './constants/thumbnails.constant';
+import {LANGUAGES} from './constants/languages.constant';
 import MainController from './controllers/main.controller';
 import attachLang from './directives/language-attach.directive';
 import headerTpl from './partials/header/header.directive';
@@ -26,10 +28,11 @@ importAll(require.context('../public/fonts', false, /\.(woff|woff2|ttf|eot|otf)$
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [uiRouter, angularTranslate])
+angular.module(MODULE_NAME, [uiRouter, angularTranslate, duScroll])
   .config(config)
   .constant('THUMBNAILS', THUMBNAILS)
-  .controller('AppCtrl', MainController)
+  .constant('LANGUAGES', LANGUAGES)
+  .controller('MainCtrl', MainController)
   .directive('attachLang', attachLang)
   .directive('headerTemplate', headerTpl)
   .component('wine', wine)
