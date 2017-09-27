@@ -28,13 +28,13 @@ h1:lang(ge), h2:lang(ge), h3:lang(ge), h4:lang(ge), h5:lang(ge), h6:lang(ge) {
   font-style: normal;
 }
 
-p:lang(ge), span:lang(ge), a:lang(ge), li:lang(ge) {
+p:lang(ge), span:lang(ge), a:lang(ge), li:lang(ge), input:lang(ge), textarea:lang(ge) {
   font-family: 'NotoSans', Arial, serif;
   font-weight: normal;
   font-style: normal;
 }
 
-p, span, a, li {
+p, span, a, li, input, textarea {
   font-family: 'PT Sans', Arial, serif;
   font-weight: normal;
   font-style: normal;

@@ -1,51 +1,5 @@
 <header class="grid grid--middle">
-	<div class="nav-bar__container">
-	<div class="4/12--desk nav-bar grid__cell">
-		<img src="/img/baia-logo.jpg" class="nav-bar__logo">
-		</img>
-		<span 
-			ng-click="main.burgerClicked = !main.burgerClicked" 
-			class="nav-bar__burger">&#9776;
-		</span>
-	</div>
-	<div class="6/12--desk grid__cell grid--right nav-bar__links padding-top-10" ng-class="{'nav-bar__links--hidden': !main.burgerClicked,
-	'nav-bar__links--show': main.burgerClicked}">
-		<a href="" translate>NAVIGATION.OUR_WINES</a>
-		<a href="" translate>NAVIGATION.FIND_US</a>
-		<a href="" translate>NAVIGATION.SOCIAL_MEDIA</a>
-		<a href="" translate>NAVIGATION.CONTACT_US</a>
-	</div>
-	<div class="2/12--desk grid__cell nav-bar__lang-box padding-top-10"
-			ng-mouseleave="main.selectLangHover = false"
-			ng-blur="main.selectLangHover = false"
-			ng-class="{'nav-bar__lang-box--mobile-open': main.burgerClicked}">
-			<div class="nav-bar__lang-box-outer">
-				<div class="nav-bar__lang-box-inner">
-					<span ng-repeat="language in main.languages">
-						<a
-						href
-						ng-if="main.currentLang === language.SHORT_CODE" 
-						ng-click="main.selectLangHover = !main.selectLangHover"
-						class="nav-bar__lang-box--selected">
-							<span class="flag-icon {{language.CLASS}}"></span>
-							<span class="padding-left-5">{{language.NAME}}</span>
-							<span class="padding-left-5">&#9207;</span>
-							</br>
-						</a>
-						<a
-						href
-						ng-if="main.currentLang !== language.SHORT_CODE"
-						ng-hide="!main.selectLangHover"
-						ng-click="main.switchLang(language)">
-							<span class="flag-icon {{language.CLASS}}"></span>
-							<span class="padding-left-5">{{language.NAME}}</span>
-							</br>
-						</a>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
+	<navigation></navigation>
 	<div header-template class="3/4--desk grid__cell grid__cell--center header header__main header--middle header--center"></div>
 </header>
 <main class="grid grid--middle">
@@ -68,8 +22,15 @@
 			<h2 attach-lang translate class="header--center">FIND_US</h2>
 			<map></map>
 		</div>
+		<div class="3/4 grid__cell grid__cell--center grid__cell--nested">
+			<h2 attach-lang translate class="header--center">SOCIAL_MEDIA</h2>
+			<social></social>
+		</div>
+		<div class="3/4 grid__cell grid__cell--center grid__cell--nested">
+			<h2 attach-lang translate class="header--center">CONTACT_US</h2>
+			<contact></contact>
+		</div>
 	</div>
 </main>
 <footer>
-  <a ng-href="{{main.url}}" attach-lang translate>PARAGRAPH</a>
 </footer>

@@ -1,0 +1,41 @@
+.social {
+	&__container {
+		display: flex;
+
+		@media screen and (max-width: 1024px) {
+			display: block;
+		}
+	}
+
+	&__insta {
+		@media screen and (max-width: 1024px) {
+			padding: 20px 0px 0px 0px;
+		}
+		&--resizer {
+			position: relative;
+			height: 0;
+			overflow: hidden;
+			padding-bottom: 115%;
+
+			@media screen and (max-width: 414px) {
+				padding-bottom: 140%;
+			}
+			
+			@media screen and (max-width: 376px) {
+				padding-bottom: 155%;
+			}
+
+			@media screen and (min-width: 320px) and (max-width: 359px) {
+				padding-bottom: 170%;
+			}
+
+			& iframe {
+				position: absolute;
+				top:0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}

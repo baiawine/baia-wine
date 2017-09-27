@@ -1,0 +1,32 @@
+.contact {
+	display: inline-block;
+
+	& input:not(.contact__send), textarea {
+		display: block;
+		width: 100%;
+		background: #FDFBFB;
+		border: none;
+		border-bottom: 2px solid #000;
+		padding: 10px 10px 10px 0px;
+
+		&[type="email"] {
+			height: 3rem;
+			font-size: 3rem;
+		}
+	}
+
+	&__message {
+		color: #464646;
+		min-height: 5rem;
+		font-size: 1.5rem;
+		resize: none;
+	}
+
+	&__send {
+		background: #FDFBFB;
+		padding: 10px 20px;
+		border: 2px solid #000;
+		margin-top: 20px;
+		cursor: pointer;
+	}
+}
