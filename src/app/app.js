@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import angularTranslate from 'angular-translate';
 import duScroll from 'angular-scroll';
+import animate from 'angular-animate';
 
 import {THUMBNAILS} from './constants/thumbnails.constant';
 import {LANGUAGES} from './constants/languages.constant';
@@ -13,6 +14,7 @@ import wine from './partials/wine/wine.component';
 import map from './partials/map/map.component';
 import social from './partials/social/social.component';
 import contact from './partials/contact/contact.component';
+import scroller from './partials/scroller/scroller.component';
 import config from './app.config';
 import '../style/main.scss';
 
@@ -31,7 +33,7 @@ importAll(require.context('../public/fonts', false, /\.(woff|woff2|ttf|eot|otf)$
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [uiRouter, angularTranslate, duScroll])
+angular.module(MODULE_NAME, [uiRouter, angularTranslate, duScroll, animate])
   .config(config)
   .constant('THUMBNAILS', THUMBNAILS)
   .constant('LANGUAGES', LANGUAGES)
@@ -42,6 +44,7 @@ angular.module(MODULE_NAME, [uiRouter, angularTranslate, duScroll])
   .component('wine', wine)
   .component('map', map)
   .component('social', social)
-  .component('contact', contact);
+  .component('contact', contact)
+  .component('scroller', scroller);
 
 export default MODULE_NAME;

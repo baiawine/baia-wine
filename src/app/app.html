@@ -1,9 +1,10 @@
-<header class="grid grid--middle">
+<scroller></scroller>
+<header class="grid grid--middle" id="top">
 	<navigation></navigation>
 	<div header-template class="3/4--desk grid__cell grid__cell--center header header__main header--middle header--center"></div>
 </header>
 <main class="grid grid--middle">
-	<div class="3/4 grid__cell grid__cell--center">
+	<div class="3/4 grid__cell grid__cell--center" id="our-wines">
 		<h2 class="header--center" attach-lang translate>WINES_HEADER</h2>
 		<div class="grid">
 			<div ng-repeat="entry in main.thumbnails" ng-init="isLeft = !($index % 2)" ng-class="{'grid--rev': isLeft, 'wine-box--padding-top': $index != 0 }">
@@ -18,15 +19,15 @@
 	</div>
 	<div class="grid__cell vine">
 		<img class="vine__svg" src="/img/wine_grape.svg">
-		<div class="3/4 grid__cell grid__cell--center grid__cell--nested">
+		<div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="find-us">
 			<h2 attach-lang translate class="header--center">FIND_US</h2>
 			<map></map>
 		</div>
-		<div class="3/4 grid__cell grid__cell--center grid__cell--nested">
+		<div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="social-media">
 			<h2 attach-lang translate class="header--center">SOCIAL_MEDIA</h2>
 			<social></social>
 		</div>
-		<div class="3/4 grid__cell grid__cell--center grid__cell--nested">
+		<div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="contact">
 			<h2 attach-lang translate class="header--center">CONTACT_US</h2>
 			<contact></contact>
 		</div>

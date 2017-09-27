@@ -1,17 +1,19 @@
 .map {
 	min-height: 30rem;
+	transform: translateX(-140%);
+
+	&.active {
+		transform: none;
+	}
+
 	@media screen and (max-width: 1024px) {
 		min-height: 25rem;
 	}
 	&__directions {
-		transition: visibility 0s, opacity 0.5s linear;
-		&--hidden {
-			visibility: hidden;
-			opacity: 0;
-		}
-		&--visible {
-			visibility: visible;
+		opacity: 0;
+
+		&.active {
 			opacity: 1;
-		}	
+		}
 	}
 }

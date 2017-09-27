@@ -9,10 +9,10 @@
 		</div>
 		<div class="6/12--desk grid__cell grid--right nav-bar__links padding-top-10" ng-class="{'nav-bar__links--hidden': !nav.burgerClicked,
 		'nav-bar__links--show': nav.burgerClicked}">
-			<a href="" translate>NAVIGATION.OUR_WINES</a>
-			<a href="" translate>NAVIGATION.FIND_US</a>
-			<a href="" translate>NAVIGATION.SOCIAL_MEDIA</a>
-			<a href="" translate>NAVIGATION.CONTACT_US</a>
+			<a href="#our-wines" class="animate-font" du-smooth-scroll translate>NAVIGATION.OUR_WINES</a>
+			<a href="#find-us" class="animate-font" du-smooth-scroll translate>NAVIGATION.FIND_US</a>
+			<a href="#social-media" class="animate-font" du-smooth-scroll translate>NAVIGATION.SOCIAL_MEDIA</a>
+			<a href="#contact" class="animate-font" du-smooth-scroll translate>NAVIGATION.CONTACT_US</a>
 		</div>
 		<div class="2/12--desk grid__cell nav-bar__lang-box padding-top-10"
 			ng-mouseleave="nav.selectLangHover = false"
@@ -35,7 +35,8 @@
 							href
 							ng-if="nav.currentLang !== language.SHORT_CODE"
 							ng-hide="!nav.selectLangHover"
-							ng-click="nav.switchLang(language)">
+							ng-click="nav.switchLang(language)"
+							class="animate-color">
 								<span class="flag-icon {{language.CLASS}}"></span>
 								<span class="padding-left-5">{{language.NAME}}</span>
 								</br>
