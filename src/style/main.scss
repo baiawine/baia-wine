@@ -11,6 +11,7 @@
 @import "./contact";
 @import "./scroller";
 @import "./animation";
+@import "./button";
 
 body {
   background: #FDFBFB;
@@ -48,15 +49,24 @@ header {
     }
 }
 
-.vine {
-  &__svg {
-    width: 100%;
-  }
+.show-more {
+  display: flex;
+  justify-content: center;
+}
+
+.pull-up {
   position: relative;
   padding-left: 20px;
   top: -2rem;
   @media screen and (min-width: 1025px) {
     top: -5rem;
+  }
+}
+.vine {
+  z-index: -1;
+
+  &__svg {
+    width: 100%;
   }
 }
 

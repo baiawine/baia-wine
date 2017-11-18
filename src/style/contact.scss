@@ -1,7 +1,7 @@
 .contact {
 	display: inline-block;
 
-	& input:not(.contact__send), textarea {
+	& input:not(.button), textarea {
 		display: block;
 		width: 100%;
 		background: #FDFBFB;

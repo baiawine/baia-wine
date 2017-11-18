@@ -7,7 +7,7 @@ export default function config($stateProvider, $translateProvider) {
   $stateProvider
     .state('home', {
       url: '',
-      template: require('./app.html'),
+      template: require('./main.html'),
       controller: 'MainCtrl',
       controllerAs: 'main'
     });

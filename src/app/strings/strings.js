@@ -2,11 +2,13 @@ const strings = {
   EN: {
   	HEADER_INTRO: 'Welcome to Baia\'s Vineyard!',
   	WINES_HEADER: 'Our wines',
+    WINES_SHOW_MORE: 'Show more',
     HEADLINE: 'What an awesome module!',
     FIND_US: 'Here\'s how to find us', 
     DIRECTIONS: 'Directions from Kutaisi',
     SOCIAL_MEDIA: 'Life in the vineyard',
     CONTACT_US: 'We\'d love to hear from you',
+    CONTACT_SEND: 'Send',
     NAVIGATION: {
       OUR_WINES: 'Our wines',
       FIND_US: 'Find us',
