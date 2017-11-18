@@ -21,7 +21,7 @@
 	
 	&__logo {
 		display: block;
-		height: 2.5rem;
+		max-height: 80px;
 		background: url('/img/baia-logo.jpg');
 		background-repeat: no-repeat;
 		background-size: contain;
@@ -33,7 +33,7 @@
 
 	&__burger {
 		display: none;
-		font-size: 2rem;
+		// font-size: 2rem;
 		margin-left: auto;
 
 		@media screen and (max-width: 1024px) {
