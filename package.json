@@ -1,7 +1,7 @@
 {
-  "name": "angular-webpack-workflow",
+  "name": "baia-wine",
   "version": "1.1.0",
-  "description": "A workflow for Angular made with Webpack",
+  "description": "Wineyard and guest house in Georgia",
   "scripts": {
     "build": "rimraf dist && webpack --bail --progress --profile",
     "server": "webpack-dev-server --hot --inline",
@@ -11,14 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/preboot/angularjs-webpack.git"
+    "url": "https://github.com/baiawine/baia-wine.git"
   },
-  "author": "Jesus Rodriguez",
+  "author": "Saul Venskutonis",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/preboot/angularjs-webpack/issues"
-  },
-  "homepage": "https://github.com/preboot/angularjs-webpack",
+  "homepage": "https://github.com/saulve",
   "dependencies": {
     "angular": "^1.5.0",
     "angular-animate": "^1.6.6",
