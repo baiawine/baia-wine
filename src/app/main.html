@@ -1,51 +1,51 @@
 <scroller></scroller>
 <header class="grid grid--middle" id="top">
-	<navigation></navigation>
-	<div header-template class="3/4--desk grid__cell grid__cell--center header header__main header--middle header--center"></div>
+    <navigation></navigation>
+    <div header-template class="3/4--desk grid__cell grid__cell--center header header__main header--middle header--center"></div>
 </header>
 <main class="grid grid--middle">
-	<div class="3/4 grid__cell grid__cell--center" id="our-wines">
-		<h2 class="header--center" attach-lang translate>WINES_HEADER</h2>
-		<div class="grid">
-			<div ng-repeat="entry in main.thumbnails | limitTo: main.productLimit" ng-init="isLeft = !($index % 2)" ng-class="{'grid--rev': isLeft, 'wine-box--padding-top': $index != 0 }">
-				<wine
-				name="'PRODUCTS.' + entry.KEY + '.NAME'"
-				img-src="entry.IMG_SRC"
-				description="'PRODUCTS.' + entry.KEY + '.DESCRIPTION'"
-				is-left="isLeft">
-				</wine>
-			</div>
-		</div>
-		<div class="show-more"
-			ng-hide="main.productLimit === main.thumbnails.length">
-			<button 
-				class="button animate-background-color" 
-				type="button"
-				value="{WINES_SHOW_MORE | translate}" 
-				ng-click="main.productLimit = main.thumbnails.length"
-				translate>
-				WINES_SHOW_MORE
-			</button>
-		</div>
-	</div>
-	<div class="grid__cell pull-up vine">
-		<img class="vine__svg" src="/img/wine_grape.svg">
-	</div>
-	<div class="grid__cell pull-up">
-		<!-- <img class="vine__svg" src="/img/wine_grape.svg"> -->
-		<div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="find-us">
-			<h2 attach-lang translate class="header--center">FIND_US</h2>
-			<map></map>
-		</div>
-		<div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="social-media">
-			<h2 attach-lang translate class="header--center">SOCIAL_MEDIA</h2>
-			<social></social>
-		</div>
-		<div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="contact">
-			<h2 attach-lang translate class="header--center">CONTACT_US</h2>
-			<contact></contact>
-		</div>
-	</div>
+    <div class="3/4 grid__cell grid__cell--center" id="our-wines">
+        <h2 class="header--center" attach-lang translate>WINES_HEADER</h2>
+        <div class="grid">
+            <div ng-repeat="entry in main.thumbnails | limitTo: main.productLimit" ng-init="isLeft = !($index % 2)" ng-class="{'grid--rev': isLeft, 'wine-box--padding-top': $index != 0 }">
+                <wine
+                name="'PRODUCTS.' + entry.KEY + '.NAME'"
+                img-src="entry.IMG_SRC"
+                description="'PRODUCTS.' + entry.KEY + '.DESCRIPTION'"
+                is-left="isLeft">
+                </wine>
+            </div>
+        </div>
+        <div class="show-more"
+            ng-hide="main.productLimit === main.thumbnails.length">
+            <button 
+                class="button animate-background-color" 
+                type="button"
+                value="{WINES_SHOW_MORE | translate}" 
+                ng-click="main.productLimit = main.thumbnails.length"
+                translate>
+                WINES_SHOW_MORE
+            </button>
+        </div>
+    </div>
+    <div class="grid__cell pull-up vine">
+        <img class="vine__svg" src="/assets/img/wine_grape.svg">
+    </div>
+    <div class="grid__cell pull-up">
+        <!-- <img class="vine__svg" src="/assets/img/wine_grape.svg"> -->
+        <div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="find-us">
+            <h2 attach-lang translate class="header--center">FIND_US</h2>
+            <map></map>
+        </div>
+        <div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="social-media">
+            <h2 attach-lang translate class="header--center">SOCIAL_MEDIA</h2>
+            <social></social>
+        </div>
+        <div class="3/4 grid__cell grid__cell--center grid__cell--nested" id="contact">
+            <h2 attach-lang translate class="header--center">CONTACT_US</h2>
+            <contact></contact>
+        </div>
+    </div>
 </main>
 <footer>
 </footer>

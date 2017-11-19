@@ -18,11 +18,11 @@
 			background: #fff;
 		}
 	}
-	
+
 	&__logo {
 		display: block;
 		max-height: 80px;
-		background: url('/img/baia-logo.jpg');
+		background: url('/assets/img/baia-logo.jpg');
 		background-repeat: no-repeat;
 		background-size: contain;
 
@@ -60,13 +60,13 @@
 				font-size: 1.5rem;
 			}
 		}
-		
+
 		&--hidden {
 			@media screen and (max-width: 1024px) {
 				display: none;
 			}
 		}
-		
+
 		&--show {
 			@media screen and (max-width: 1024px) {
 				display: flex;
@@ -77,14 +77,14 @@
 	}
 
 	&__lang {
-		
+
 		&-box {
 			line-height: 1.5;
 
 			& a:not(.nav-bar__lang-box--selected):hover {
 				color: #fff;
 			}
-			
+
 			@media screen and (max-width: 1024px) {
 				display: none;
 			}

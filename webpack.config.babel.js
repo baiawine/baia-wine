@@ -1,28 +1,88 @@
 'use strict';
 
+import path from 'path';
 // Modules
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import ImageminPlugin from 'imagemin-webpack-plugin';
+import BrotliPlugin from 'brotli-webpack-plugin';
 
-/**
- * Env
- * Get npm lifecycle event to identify the environment
- */
-var ENV = process.env.npm_lifecycle_event;
-var isTest = ENV === 'test' || ENV === 'test-watch';
-var isProd = ENV === 'build';
+const paths = {
+  DIST: path.resolve(__dirname, 'dist'),
+  SRC: path.resolve(__dirname, 'src'),
+  JS: path.resolve(__dirname, 'src/app'),
+};
 
-module.exports = function makeWebpackConfig() {
+const ENV = process.env.npm_lifecycle_event;
+const isProd = ENV === 'build';
+
+// const envPlugins = [
+//   new ExtractTextPlugin('styles.bundle.css'),
+
+//   new HtmlWebpackPlugin({
+//     template: path.join(paths.SRC, 'index.html'),
+//     hash: true,
+//   }),
+
+//   new ScriptExtHtmlWebpackPlugin({
+//     defaultAttribute: 'async',
+//   }),
+
+//   new StyleExtHtmlWebpackPlugin(),
+
+//   new StyleLintPlugin(),
+// ];
+
+// if (isProd) {
+//   envPlugins.push(
+//     new webpack.DefinePlugin({
+//       'process.env.NODE_ENV': JSON.stringify('production'),
+//     }),
+//     // Uglify js
+//     new webpack.optimize.UglifyJsPlugin({
+//       compress: {
+//         comparisons: true,
+//         conditionals: true,
+//         dead_code: true,
+//         drop_debugger: true,
+//         evaluate: true,
+//         if_return: true,
+//         join_vars: true,
+//         screw_ie8: true,
+//         sequences: true,
+//         unused: true,
+//         warnings: false,
+//       },
+//       output: {
+//         comments: false,
+//       },
+//     }),
+
+//     // Minify css
+//     new OptimizeCssAssetsPlugin(),
+
+//     new CopyWebpackPlugin([{
+//       from: 'src/assets/img',
+//       to: 'assets/img',
+//     }]),
+
+//     new ImageminPlugin({
+//       test: /\.(jpe?g|png|gif|svg)$/i,
+//     })
+//   );
+// }
+
+module.exports = () => {
   /**
    * Config
    * Reference: http://webpack.github.io/docs/configuration.html
    * This is the object where all configuration gets set
    */
-  var config = {};
+  let config = {};
 
   /**
    * Entry
@@ -30,8 +90,8 @@ module.exports = function makeWebpackConfig() {
    * Should be an empty object if it's generating a test build
    * Karma will set this when it's a test build
    */
-  config.entry = isTest ? void 0 : {
-    app: './src/app/app.js'
+  config.entry = {
+    app: path.join(paths.JS, 'app.js')
   };
 
   /**
@@ -40,7 +100,7 @@ module.exports = function makeWebpackConfig() {
    * Should be an empty object if it's generating a test build
    * Karma will handle setting it up for you when it's a test build
    */
-  config.output = isTest ? {} : {
+  config.output = {
     // Absolute output directory
     path: __dirname + '/dist',
 
@@ -62,17 +122,13 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#devtool
    * Type of sourcemap to use per build type
    */
-  
+
   // Extract text fails in development on live reload
   // thus set different loaders depending on the env
   // Ref: https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/30
   let loaders;
 
-  if (isTest) {
-    config.devtool = 'inline-source-map';
-    loaders = 'null-loader';
-  }
-  else if (isProd) {
+  if (isProd) {
     config.devtool = 'source-map';
     loaders = ExtractTextPlugin.extract(['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']);
   }
@@ -127,16 +183,6 @@ module.exports = function makeWebpackConfig() {
           options: {
             name: '/img/[name].[ext]'
           }
-        },
-        {
-          loader: 'image-webpack-loader',
-          options: {
-            query: {
-              progressive: true,
-              optimizationLevel: 7,
-              interlaced: false
-            }
-          }
         }
       ]
     }, {
@@ -161,25 +207,6 @@ module.exports = function makeWebpackConfig() {
     }]
   };
 
-  // ISTANBUL LOADER
-  // https://github.com/deepsweet/istanbul-instrumenter-loader
-  // Instrument JS files with istanbul-lib-instrument for subsequent code coverage reporting
-  // Skips node_modules and files that end with .spec.js
-  if (isTest) {
-    config.module.rules.push({
-      enforce: 'pre',
-      test: /\.js$/,
-      exclude: [
-        /node_modules/,
-        /\.spec\.js$/
-      ],
-      loader: 'istanbul-instrumenter-loader',
-      query: {
-        esModules: true
-      }
-    })
-  }
-
   /**
    * PostCSS
    * Reference: https://github.com/postcss/autoprefixer-core
@@ -194,22 +221,28 @@ module.exports = function makeWebpackConfig() {
    * List: http://webpack.github.io/docs/list-of-plugins.html
    */
   config.plugins = [
-  // Reference: https://github.com/webpack/extract-text-webpack-plugin
-  // Extract css files
-      new ExtractTextPlugin({filename: 'css/[name]_[hash].css', allChunks: true})
-  ];
+    // Reference: https://github.com/webpack/extract-text-webpack-plugin
+    // Extract css files
+    new ExtractTextPlugin({
+      filename: 'css/[name]_[hash].css',
+      allChunks: true,
+    }),
 
-  // Skip rendering index.html in test mode
-  if (!isTest) {
-    // Reference: https://github.com/ampedandwired/html-webpack-plugin
-    // Render index.html
-    config.plugins.push(
-      new HtmlWebpackPlugin({
-        template: './src/public/index.html',
-        inject: 'body'
-      })
-    );
-  }
+    new HtmlWebpackPlugin({
+      template: path.join(paths.SRC, 'index.html'),
+      hash: true,
+    }),
+
+    new ImageminPlugin({
+      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/
+    }),
+    new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.(js|css|html|svg|jpg|png|jpeg)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+  ];
 
   // Add build specific plugins
   if (isProd) {
@@ -224,12 +257,21 @@ module.exports = function makeWebpackConfig() {
 
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
-      new webpack.optimize.UglifyJsPlugin()
+      new webpack.optimize.UglifyJsPlugin(),
 
       // Reference: https://github.com/NMFR/optimize-css-assets-webpack-plugin
       // Minify css
-      // new OptimizeCssAssetsPlugin()
-    )
+      new OptimizeCssAssetsPlugin(),
+
+      new ImageminPlugin({ test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/ }),
+
+      new BrotliPlugin({
+        asset: '[path].br[query]',
+        test: /\.(js|css|html|svg)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      })
+    );
   }
 
   /**
@@ -238,9 +280,9 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
   config.devServer = {
-    contentBase: './dist',
-    stats: 'minimal'
+    contentBase: paths.SRC,
+    compress: true,
   };
 
   return config;
-}();
+};

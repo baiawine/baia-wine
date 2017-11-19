@@ -4,8 +4,8 @@ import angularTranslate from 'angular-translate';
 import duScroll from 'angular-scroll';
 import animate from 'angular-animate';
 
-import {THUMBNAILS} from './constants/thumbnails.constant';
-import {LANGUAGES} from './constants/languages.constant';
+import { THUMBNAILS } from './constants/thumbnails.constant';
+import { LANGUAGES } from './constants/languages.constant';
 import MainController from './controllers/main.controller';
 import attachLang from './directives/language-attach.directive';
 import navigation from './partials/navigation/navigation.component';
@@ -25,11 +25,11 @@ function importAll(r) {
 /**
  * Import all images for webpack loaders to process
  */
-importAll(require.context('../public/img', false, /\.(png|jpg|jpe?g|gif|svg)$/));
+importAll(require.context('../assets/img', false, /\.(png|jpg|jpe?g|gif|svg)$/));
 /**
  * Import all fonts for webpack loaders to process
  */
-importAll(require.context('../public/fonts', false, /\.(woff|woff2|ttf|eot|otf)$/));
+importAll(require.context('../assets/fonts', false, /\.(woff|woff2|ttf|eot|otf)$/));
 
 const MODULE_NAME = 'app';
 
