@@ -9,6 +9,7 @@ const WineComponent = {
     name: '<',
     imgName: '<',
     description: '<',
+    abv: '<',
     isLeft: '<',
   },
   template: template,

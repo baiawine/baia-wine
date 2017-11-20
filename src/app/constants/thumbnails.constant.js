@@ -5,9 +5,12 @@ export const THUMBNAILS = [{
   KEY: 'GVANCA_WINE',
   IMG_NAME: '/assets/img/gvantsa-wine',
 }, {
-  KEY: 'TSOLIKOURI',
-  IMG_NAME: '/assets/img/tsolikouri',
+  KEY: 'TSITSKA_TSOLIKOURI',
+  IMG_NAME: '/assets/img/tsitska-tsoulikouri',
 }, {
-  KEY: 'GVANCA_WINE',
-  IMG_NAME: '/assets/img/gvantsa-wine',
+  KEY: 'KRAKHUNA',
+  IMG_NAME: '/assets/img/tsitska-tsoulikouri-krakhuna',
+}, {
+  KEY: 'CHA_CHA',
+  IMG_NAME: '/assets/img/cha-cha',
 }];

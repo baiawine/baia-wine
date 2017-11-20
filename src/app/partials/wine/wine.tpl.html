@@ -19,4 +19,5 @@
 <div class="2/3--desk grid__cell wine-box__details animate-slide" ng-class="{'wine-box__details--left': wine.isLeft, 'wine-box__details--right': !wine.isLeft }" href="#our-wines" du-spy-context du-scrollspy>
 	<h4 class="header__wine-box header--no-margin-bottom">{{wine.name | translate}}</h4>
 	<p class="wine-box__details">{{wine.description | translate}}</p>
+  <p><span class="wine-box__abv">ABV:</span> {{wine.abv | translate}}</p>
 </div>

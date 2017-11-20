@@ -1,7 +1,7 @@
 config.$inject = ['$stateProvider', '$translateProvider'];
 
 
-import { default as strings } from './strings/strings'
+import { default as strings } from './strings/strings';
 
 export default function config($stateProvider, $translateProvider) {
   $stateProvider
@@ -9,12 +9,11 @@ export default function config($stateProvider, $translateProvider) {
       url: '',
       template: require('./main.html'),
       controller: 'MainCtrl',
-      controllerAs: 'main'
+      controllerAs: 'main',
     });
 
   $translateProvider
     .translations('en', strings.EN)
     .translations('ge', strings.GE)
-    .translations('ru', strings.RU)
     .preferredLanguage('en');
 }
