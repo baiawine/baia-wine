@@ -3,15 +3,14 @@
 import path from 'path';
 // Modules
 import webpack from 'webpack';
-import autoprefixer from 'autoprefixer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import StyleExtHtmlWebpackPlugin from 'style-ext-html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import ImageminPlugin from 'imagemin-webpack-plugin';
 import BrotliPlugin from 'brotli-webpack-plugin';
+import sharp from 'responsive-loader/sharp';
 
 const paths = {
   DIST: path.resolve(__dirname, 'dist'),
@@ -68,11 +67,6 @@ if (isProd) {
     // Minify css
     new OptimizeCssAssetsPlugin(),
 
-    new CopyWebpackPlugin([{
-      from: 'src/assets/img',
-      to: 'assets/img',
-    }]),
-
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
     }),
@@ -111,11 +105,31 @@ module.exports = () => {
         use: ['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap'],
       }),
     }, {
-      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+      test: /\.(woff|woff2|ttf|eot)$/,
       use: [{
         loader: 'file-loader',
         options: {
           name: 'assets/fonts/[name].[ext]',
+        },
+      }],
+    }, {
+      test: /\.(png|jpg|jpeg)$/,
+      use: [{
+        loader: 'responsive-loader',
+        options: {
+          sizes: [235, 340, 571, 768, 1440],
+          name: 'assets/img/[name]-[width].[ext]',
+          placeholder: true,
+          placeholderSize: 50,
+          adapter: sharp,
+        },
+      }],
+    }, {
+      test: /\.(svg)$/,
+      use: [{
+        loader: 'file-loader',
+        options: {
+          name: 'assets/img/[name].[ext]',
         },
       }],
     }, {
