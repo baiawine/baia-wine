@@ -1,9 +1,12 @@
 <div class="nav-bar__container">
         <div class="4/12--desk nav-bar grid__cell">
-            <img src="/assets/img/baia-logo.jpg" class="nav-bar__logo">
+            <img
+              src="/assets/img/baia-logo-200.png"
+              alt="Baia's Vineyard logo"
+              class="nav-bar__logo">
             </img>
-            <button 
-                class="nav-bar__burger hamburger hamburger--elastic" 
+            <button
+                class="nav-bar__burger hamburger hamburger--elastic"
                 type="button"
                 ng-click="nav.burgerClicked = !nav.burgerClicked"
                 ng-class="{'is-active': nav.burgerClicked}">
@@ -28,7 +31,7 @@
                         <span ng-repeat="language in nav.languages">
                             <a
                             href
-                            ng-if="nav.currentLang === language.SHORT_CODE" 
+                            ng-if="nav.currentLang === language.SHORT_CODE"
                             ng-click="nav.selectLangHover = !nav.selectLangHover"
                             class="nav-bar__lang-box--selected">
                                 <span class="flag-icon {{language.CLASS}}"></span>

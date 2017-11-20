@@ -1,5 +1,19 @@
 <div class="1/3--desk grid__cell">
-	<img ng-cloak ng-src="{{wine.imgSrc}}" class="wine-box__image animate-opacity" href="#our-wines" du-spy-context du-scrollspy>
+	<img ng-cloak
+    ng-src="{{wine.imgName + '-2000.jpg'}}"
+    ng-srcset="{{
+    wine.imgName + '-340.jpg 340w,' +
+    wine.imgName + '-571.jpg 571w,' +
+    wine.imgName + '-1440.jpg 1440w,' +
+    wine.imgName + '-2000.jpg 2000w'}}"
+    sizes="
+    (max-width: 415px) 340px,
+    (max-width: 769px) 571px,
+    (max-width: 1440px) 571px,
+    2000px"
+    class="wine-box__image animate-opacity"
+    alt="A bottle of {{wine.name}} wine"
+    href="#our-wines" du-spy-context du-scrollspy>
 </div>
 
 <div class="2/3--desk grid__cell wine-box__details animate-slide" ng-class="{'wine-box__details--left': wine.isLeft, 'wine-box__details--right': !wine.isLeft }" href="#our-wines" du-spy-context du-scrollspy>

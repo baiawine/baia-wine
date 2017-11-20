@@ -20,9 +20,14 @@ body {
 }
 
 header {
-  background: url(~/assets/img/wineyard_header.jpg) no-repeat center center fixed;
+  background: url(~/assets/img/wineyard_header-1440.jpg) no-repeat center center fixed;
+  background: image-set( url(~/assets/img/wineyard_header-1440.jpg) 1x, url(~/assets/img/wineyard_header-2000.jpg) 2x) no-repeat center center fixed;
   height: 100vh;
   background-size: cover;
+
+  @media(max-width: 768px) {
+    background: url(~/assets/img/wineyard_header-1440.jpg) no-repeat center center fixed;
+  }
 }
 
 .header {

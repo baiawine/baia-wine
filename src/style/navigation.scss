@@ -22,9 +22,6 @@
 	&__logo {
 		display: block;
 		max-height: 80px;
-		background: url('/assets/img/baia-logo.jpg');
-		background-repeat: no-repeat;
-		background-size: contain;
 
 		@media screen and (min-width: 1024px) {
 			height: 7.5rem;

@@ -117,7 +117,7 @@ module.exports = () => {
       use: [{
         loader: 'responsive-loader',
         options: {
-          sizes: [235, 340, 571, 768, 1440],
+          sizes: [340, 571, 1440, 2000],
           name: 'assets/img/[name]-[width].[ext]',
           placeholder: true,
           placeholderSize: 50,
@@ -149,9 +149,9 @@ module.exports = () => {
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
   config.devServer = {
-    contentBase: paths.SRC,
-
-    compress: true,
+    contentBase: paths.DIST,
+    publicPath: '/',
+    // compress: true,
   };
 
   return config;
